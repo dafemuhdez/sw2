@@ -5,57 +5,44 @@
 package ejericicio;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Administrator
  */
 
-
-
 public class Membresia {
+    private Object Nombre;
+    private Object accion;
+  
     
-   public void Actualizar_Membresia (){
-       String nombre, apellido, identificacion, direccion, correo;
-        Scanner leer= new Scanner(System.in);
-        System.out.println("Introduzca su Nombre:");
-        nombre=leer.nextLine();
-        System.out.println("Introduzca su Apellido:");
-        apellido=leer.nextLine();
-        System.out.println("Introduzca su Identificación:");
-        identificacion=leer.nextLine();
-        System.out.println("Introduzca su Dirección:");
-        direccion=leer.nextLine();
-        System.out.println("Introduzca su correo electronico:");  
-        correo=leer.nextLine();
-        System.out.println(nombre+" "+apellido+" "+identificacion+" "+direccion+" "+correo);
-    System.out.println("La membresia ha sido actualizada");
+   public void Actualizar_Membresia(){ 
+  JOptionPane.showMessageDialog(null, "La membresia ha sido actualizada", "Orden de compra", JOptionPane.INFORMATION_MESSAGE);
+        
+        
       
-  }
-   public void Activar_Membresia (){ 
-       String nombre, apellido, identificacion, direccion, correo;
-        Scanner leer= new Scanner(System.in);
-        System.out.println("Introduzca su Nombre:");
-        nombre=leer.nextLine();
-        System.out.println("Introduzca su Apellido:");
-        apellido=leer.nextLine();
-        System.out.println("Introduzca su Identificación:");
-        identificacion=leer.nextLine();
-        System.out.println("Introduzca su Dirección:");
-        direccion=leer.nextLine();
-        System.out.println("Introduzca su correo electronico:");  
-        correo=leer.nextLine();
-        System.out.println(nombre+" "+apellido+" "+identificacion+" "+direccion+" "+correo);
-    System.out.println("La membresia ha sido activada");
+    /**
+     *
+     * @param nombre
+     * @param apellido
+     * @param identificacion
+     * @param direccion
+     * @param correo
+     */}
+    public void Activar_Membresia(){ 
+    JOptionPane.showMessageDialog(null, "La membresia ha sido activada", "Orden de compra", JOptionPane.INFORMATION_MESSAGE);
       
-  }
- public void Enviar_Email (int opcion){
+    }
+    public void Enviar_Email (int opcion){
      if(opcion==1){
-         System.out.println("El correo informando activación se ha enviado");
+         JOptionPane.showMessageDialog(null, "El correo ha sido enviado informando la activación ", "Orden de compra", JOptionPane.INFORMATION_MESSAGE);
      }else{
-         System.out.println("El correo informando actualización se ha enviado");
+         JOptionPane.showMessageDialog(null, "El correo ha sido enviado informando la  actualización ", "Orden de compra", JOptionPane.INFORMATION_MESSAGE);
      }
     
       
   }    
+
+   
 }

@@ -5,6 +5,7 @@
 package ejericicio;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
  /*
  * @author Administrator
  */
@@ -17,10 +18,10 @@ public class Video {
    public void comparar_video(){
         String nombre;
         Scanner leer= new Scanner(System.in);
-        System.out.println("Introduzca el Nombre del video:");
+        JOptionPane.showMessageDialog(null, "Introduzca el nombre del video", "Orden de compra", JOptionPane.INFORMATION_MESSAGE);
         nombre=leer.nextLine();
         if(nombre.equalsIgnoreCase("aprendiendo a eskiar")){
-            System.out.println("se agregara un video de primeros auxilios a su paquete de entrega");
+          JOptionPane.showMessageDialog(null, "Se agregara un video de primeros auxilios a su paquete de entrega", "Orden de compra", JOptionPane.INFORMATION_MESSAGE);
         }
 
 }
