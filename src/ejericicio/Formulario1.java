@@ -38,6 +38,7 @@ public class Formulario1 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         accion = new javax.swing.JComboBox();
         Generar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,7 +52,12 @@ public class Formulario1 extends javax.swing.JFrame {
 
         jLabel5.setText("Correo Electronico");
 
-        accion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Producto fisico", "Libro", "Activar Membresia", "Actualizar Membresia", "Video" }));
+        accion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Producto Fisico", "Libro", "Activar Membresia", "Actualizar Membresia", "Video" }));
+        accion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accionActionPerformed(evt);
+            }
+        });
 
         Generar.setText("Generar");
         Generar.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +66,8 @@ public class Formulario1 extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setText("ORDEN DE COMPRA");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -67,10 +75,6 @@ public class Formulario1 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 188, Short.MAX_VALUE)
-                        .addComponent(accion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -85,16 +89,27 @@ public class Formulario1 extends javax.swing.JFrame {
                             .addComponent(Apellido, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(Identificacion, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(Direccion, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(110, 110, 110))))
+                        .addGap(110, 110, 110))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 188, Short.MAX_VALUE)
+                        .addComponent(accion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(188, 188, 188)
-                .addComponent(Generar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(Generar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(jLabel6)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel6)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -117,7 +132,7 @@ public class Formulario1 extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addComponent(accion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(Generar)
                 .addGap(22, 22, 22))
         );
@@ -127,11 +142,54 @@ public class Formulario1 extends javax.swing.JFrame {
 
     private void GenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarActionPerformed
         // TODO add your handling code here:
-        Root obj = new Root(); 
+        Membresia a=new Membresia();
+        Membresia b = new Membresia();
+        this.seleccionar((String)this.accion.getSelectedItem());
         String opcion=(String)this.accion.getSelectedItem();
-        this.Identificacion.setText(opcion);
+        String nombre=Nombre.getText();
+        String apellido=Apellido.getText();
+        String Identificación=Identificacion.getText();
+        String direccion=Direccion.getText();
+        String correo=Correo.getText();
+        //a.Activar_Membresia(nombre, apellido, Identificación, direccion, correo);
+       // b.Actualizar_Membresia(nombre, apellido, Identificación, direccion, correo);
     }//GEN-LAST:event_GenerarActionPerformed
 
+    private void accionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_accionActionPerformed
+
+      public void seleccionar(String opcion){  
+     Pagos p1= new Pagos();
+     Membresia mem=new Membresia();
+     Video vid=new Video();
+     Agente agen=new Agente();
+     
+        switch(opcion){
+            case "Producto Fisico":
+              p1.generar_Orden();
+              agen.generar_pagodecomisión();
+                break;
+            case "Libro":
+                p1.generar_Orden();
+                p1.enviarDept();
+                agen.generar_pagodecomisión();
+                break;
+            case "Activar Membresia":       
+                        mem.Activar_Membresia();
+                        mem.Enviar_Email(1);
+                        break;
+            case "Actualizar Membresia":
+                        mem.Actualizar_Membresia();
+                        mem.Enviar_Email(2);
+                        break;
+            case "Video":
+                vid.comparar_video();
+                break;
+            default:
+                break;
+             } 
+         }
     /**
      * @param args the command line arguments
      */
@@ -179,5 +237,6 @@ public class Formulario1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }
