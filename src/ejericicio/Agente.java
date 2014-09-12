@@ -12,7 +12,7 @@ public class Agente {
     
      String nombre;
     
-     public void generar_pagodecomisión(){
+     public void generarPagoComisión(){
          
          System.out.println("Generando pago de comisión...");
      }

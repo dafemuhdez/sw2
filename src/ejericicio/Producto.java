@@ -5,16 +5,17 @@
 package ejericicio;
 
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Administrator
  */
-public class Producto {
+public class Producto{
     
     String Descripción;
     String valor;
-    boolean tipo;
+    String tipo;
     ArrayList videos= new ArrayList();
     String Formato;
     String libros;
@@ -35,11 +36,11 @@ public class Producto {
         this.valor = valor;
     }
 
-    public boolean isTipo() {
+    public String isTipo() {
         return tipo;
     }
 
-    public void setTipo(boolean tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -66,6 +67,34 @@ public class Producto {
     public void setLibros(String libros) {
         this.libros = libros;
     }
+    
+    public void actualizarMembresia(){ 
+        JOptionPane.showMessageDialog(null, "La membresia ha sido actualizada", "Orden de compra", JOptionPane.INFORMATION_MESSAGE);
+        
+        
+      
+    /**
+     *
+     * @param nombre
+     * @param apellido
+     * @param identificacion
+     * @param direccion
+     * @param correo
+     */}
+    
+    public void activarMembresia(){ 
+        JOptionPane.showMessageDialog(null, "La membresia ha sido activada", "Orden de compra", JOptionPane.INFORMATION_MESSAGE); 
+    }
+    
+    public void enviarEmail (int opcion){
+        if(opcion==1){
+            JOptionPane.showMessageDialog(null, "El correo ha sido enviado informando la activación ", "Orden de compra", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "El correo ha sido enviado informando la  actualización ", "Orden de compra", JOptionPane.INFORMATION_MESSAGE);
+        }
+    
+      
+  }
 
    
      

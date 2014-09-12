@@ -8,12 +8,12 @@ package ejericicio;
  *
  * @author Administrator
  */
-public class Formulario1 extends javax.swing.JFrame {
+public class VistaPago extends javax.swing.JFrame {
 
     /**
      * Creates new form Formulario1
      */
-    public Formulario1() {
+    public VistaPago() {
         initComponents();
     }
 
@@ -142,15 +142,12 @@ public class Formulario1 extends javax.swing.JFrame {
 
     private void GenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarActionPerformed
         // TODO add your handling code here:
-        Membresia a=new Membresia();
-        Membresia b = new Membresia();
-        this.seleccionar((String)this.accion.getSelectedItem());
-        String opcion=(String)this.accion.getSelectedItem();
-        String nombre=Nombre.getText();
-        String apellido=Apellido.getText();
-        String Identificación=Identificacion.getText();
-        String direccion=Direccion.getText();
-        String correo=Correo.getText();
+        //Membresia a=new Membresia();
+        //Membresia b= new Membresia();
+        //new Root().seleccionar("1", Nombre.getText());
+       
+       
+           new ControladorPago().pagar((String)this.accion.getSelectedItem(),Nombre.getText(), Apellido.getText(), Identificacion.getText(),Direccion.getText(),Correo.getText());
         //a.Activar_Membresia(nombre, apellido, Identificación, direccion, correo);
        // b.Actualizar_Membresia(nombre, apellido, Identificación, direccion, correo);
     }//GEN-LAST:event_GenerarActionPerformed
@@ -159,37 +156,7 @@ public class Formulario1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_accionActionPerformed
 
-      public void seleccionar(String opcion){  
-     Pagos p1= new Pagos();
-     Membresia mem=new Membresia();
-     Video vid=new Video();
-     Agente agen=new Agente();
-     
-        switch(opcion){
-            case "Producto Fisico":
-              p1.generar_Orden();
-              agen.generar_pagodecomisión();
-                break;
-            case "Libro":
-                p1.generar_Orden();
-                p1.enviarDept();
-                agen.generar_pagodecomisión();
-                break;
-            case "Activar Membresia":       
-                        mem.Activar_Membresia();
-                        mem.Enviar_Email(1);
-                        break;
-            case "Actualizar Membresia":
-                        mem.Actualizar_Membresia();
-                        mem.Enviar_Email(2);
-                        break;
-            case "Video":
-                vid.comparar_video();
-                break;
-            default:
-                break;
-             } 
-         }
+      
     /**
      * @param args the command line arguments
      */
@@ -207,20 +174,20 @@ public class Formulario1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Formulario1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Formulario1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Formulario1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Formulario1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Formulario1().setVisible(true);
+                new VistaPago().setVisible(true);
             }
         });
     }

@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Administrator
  */
-public class Pagos {
+public class Pago {
 
     /**
      * @param args the command line arguments
@@ -34,14 +34,7 @@ public class Pagos {
       private String correo_electronico;
       
  
-    public void generar_Orden(){
-
-        JOptionPane.showMessageDialog(null, "Generando orden de entrega ", "Orden de compra", JOptionPane.INFORMATION_MESSAGE);
-    }
+   
               
-   public void enviarDept(){
-     
-    JOptionPane.showMessageDialog(null, "Enviando duplicado de orden al departamento de libros...", "Orden de compra", JOptionPane.INFORMATION_MESSAGE);
-  } 
-    
+   
 }

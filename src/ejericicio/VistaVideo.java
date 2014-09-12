@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author USUARIO
  */
-public class for_video extends javax.swing.JFrame {
+public class VistaVideo extends javax.swing.JFrame {
 
     /**
      * Creates new form for_video
      */
-    public for_video() {
+    public VistaVideo() {
         initComponents();
     }
 
@@ -93,9 +93,7 @@ public class for_video extends javax.swing.JFrame {
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
     String nom_video= Nom_video.getText();
-    if ("aprendiendo a eskiar".equals(nom_video)){
-        JOptionPane.showMessageDialog(null, "Se agregara un video de primeros auxilios a su paquete de entrega", "Orden de compra", JOptionPane.INFORMATION_MESSAGE);
-    }
+    new Video().comparar_video(nom_video);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void Nom_videoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nom_videoActionPerformed
@@ -119,20 +117,20 @@ public class for_video extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(for_video.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(for_video.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(for_video.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(for_video.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new for_video().setVisible(true);
+                new VistaVideo().setVisible(true);
             }
         });
     }
